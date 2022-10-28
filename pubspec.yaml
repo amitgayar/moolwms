@@ -1,0 +1,77 @@
+name: moolwms
+description: A Mool Warehouse Management System project.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.5 <3.0.0"
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  logger: ^1.1.0
+  shared_preferences: ^2.0.15
+  jwt_decoder: ^2.0.1
+  http: ^0.13.5
+#  bloc: ^8.1.0
+#  provider: ^6.0.3
+  flutter_bloc: ^8.1.1
+  flutter_svg: ^1.1.5
+  connectivity_plus: ^2.3.8
+  fluttertoast: ^8.0.9
+  image_picker: ^0.8.6
+  intl: ^0.17.0
+  dropdown_search: ^5.0.3
+  line_awesome_flutter: 2.0.0
+  cached_network_image: ^3.2.2
+  shimmer: ^2.0.0
+  image_cropper: ^3.0.0
+  url_launcher: ^6.1.6
+  pin_code_text_field: ^1.8.0
+  bloc: ^8.1.0
+  pinch_zoom: ^1.0.0
+
+
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/images/slider_images/
+    - assets/images/drawer_images/
+    - assets/lang/
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+          weight: 100
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/Nunito-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Nunito-Regular.ttf
+          weight: 500
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/Nunito-Black.ttf
+          weight: 900
+
