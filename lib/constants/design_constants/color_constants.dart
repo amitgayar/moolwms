@@ -13,6 +13,9 @@ class ColorConstants {
   static const Color appBlue = Color(0xFF1C4B9C);
   static const Color VEHICLE_LIGHT = Color(0xFF63D2BE);
   static const Color VEHICLE_DARK = Color(0xFF18B095);
+  static const Color PERSON_LIGHT = Color(0xFF3D4A89);
+  static const Color PERSON_DARK = Color(0xFF3D4A89);
+  static const Color GREY_SEARCH_BORDER = Color(0xffDCDCDC);
 
 
   static const Color buttonDark = Color(0xFF1C4B9C);

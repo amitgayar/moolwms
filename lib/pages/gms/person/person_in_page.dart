@@ -221,7 +221,7 @@ class PersonInPageState extends State<PersonInPage> {
                                             Navigator.of(context).pop();
                                             await personStore!
                                                 .personIn(
-                                                context, personDetail)
+                                                 personDetail)
                                                 .then((value) {
                                               DialogViews
                                                   .showSuccessBottomSheet(
