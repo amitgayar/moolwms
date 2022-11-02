@@ -110,7 +110,7 @@ class GateTransactionModel {
     };
   }
 
-  Widget getTransactionListItem(BuildContext context) {
+  Widget getTransactionListItem() {
     return Container(
       margin: const EdgeInsets.only(bottom: 24),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),

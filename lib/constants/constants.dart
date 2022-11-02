@@ -3,6 +3,7 @@ class UserRole {
   static const String admin = 'admin';
   static const String client = 'client';
   static const String supervisor = 'supervisor';
+  static const String none = "none";
 }
 
 class AppConstants {
@@ -30,8 +31,10 @@ class APIConstants {
   static const String baseUrlIndent = "http://43.204.216.25/";
   static const int timeOut = 60;
   static const String timeOutMsg = "Response taking too much time. \nCheck your connection and try again";
+
+  static const PERSON_IMAGE_CONTAINER = "";
   static const String VEHICLE_INSURANCE_IMAGE_CONTAINER = "";
 
-  static var VEHICLE_RC_IMAGE_CONTAINER;
+  static const VEHICLE_RC_IMAGE_CONTAINER = "";
 
 }

@@ -14,6 +14,8 @@ class GateStore {
   getLastPersonInTransaction(id) {}
 
   void generateReport( String s) {}
+
+  getPersonListByDateRange(id, DateTime dateTime, DateTime dateTime2) {}
 }
 
 class MobileNoModel {
@@ -62,6 +64,30 @@ class PersonModel {
 
   var personType;
 
+  int? empId;
+
+  var employee;
+
+  var fathersName;
+
+  var gender;
+
+  var address;
+
+  var govtIdType;
+
+  var govtIdNumber;
+
+  var reportingManager;
+
+  var image;
+
+  var internCode;
+
+  var labour;
+
+  var truckDriver;
+
   get id => null;
 
   static fromJson(json) {}
@@ -91,6 +117,16 @@ class PersonStore {
   getPersonById( int? personId) {}
 
   personIn(BuildContext context, PersonModel personDetail) {}
+
+  personOut(PersonModel person) {}
+}
+class AuthStore {
+  getAppUserByMobileNumber(mobileNo) {}
+
+  createAppUserWithoutMapping( mobileNo, fullName, email, none) {}
+}
+class AppUserDetailsModel {
+  var id;
 }
 
 
