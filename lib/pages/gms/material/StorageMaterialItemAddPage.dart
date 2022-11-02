@@ -12,7 +12,7 @@ import 'package:moolwms/pages/customer/addProductDialog.dart';
 import 'package:moolwms/store/CustomerStore.dart';
 import 'package:moolwms/utils/AppLocalizations.dart';
 import 'package:moolwms/utils/Extensions.dart';
-import 'package:moolwms/widgets/BottomButtonsContainer.dart';
+import 'package:moolwms/widgets/bottom_button_container.dart';
 import 'package:moolwms/widgets/custom_form_fields.dart';
 import 'package:moolwms/widgets/gradient_button.dart';
 import 'package:moolwms/widgets/searchable_dropdown/dropdown_search.dart';

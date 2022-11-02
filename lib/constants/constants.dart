@@ -30,4 +30,6 @@ class APIConstants {
   static const String baseUrlIndent = "http://43.204.216.25/";
   static const int timeOut = 60;
   static const String timeOutMsg = "Response taking too much time. \nCheck your connection and try again";
+  static const String VEHICLE_INSURANCE_IMAGE_CONTAINER = "";
+
 }

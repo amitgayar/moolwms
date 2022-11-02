@@ -5,7 +5,7 @@ import 'package:moolwms/model/MaterialModel.dart';
 import 'package:moolwms/model/MoolwmsOrgModel.dart';
 import 'package:moolwms/store/MaterialStore.dart';
 import 'package:moolwms/utils/AppLocalizations.dart';
-import 'package:moolwms/widgets/BottomButtonsContainer.dart';
+import 'package:moolwms/widgets/bottom_button_container.dart';
 import 'package:moolwms/widgets/gradient_button.dart';
 import 'package:moolwms/widgets/ProgressContainerView.dart';
 import 'package:moolwms/widgets/VisibilityExtended.dart';

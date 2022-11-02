@@ -18,7 +18,7 @@ import 'package:moolwms/utils/SharedPrefs.dart';
 import 'package:moolwms/widgets/ProgressContainerView.dart';
 import 'package:moolwms/widgets/VisibilityExtended.dart';
 import 'package:moolwms/widgets/gradient_button.dart';
-import 'package:moolwms/widgets/BottomButtonsContainer.dart';
+import 'package:moolwms/widgets/bottom_button_container.dart';
 import 'package:moolwms/utils/Utils.dart';
 import 'package:moolwms/constants/Globals.dart' as globals;
 import 'package:url_launcher/url_launcher.dart';
