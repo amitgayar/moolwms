@@ -3,7 +3,7 @@ import 'package:moolwms/constants/Constants.dart';
 import 'package:moolwms/model/MaterialModel.dart';
 import 'package:moolwms/utils/AppLocalizations.dart';
 import 'package:moolwms/widgets/BottomButtonsContainer.dart';
-import 'package:moolwms/widgets/GradientButton.dart';
+import 'package:moolwms/widgets/gradient_button.dart';
 
 class DieselItemsListPage extends StatefulWidget {
   MaterialModel materialModel;

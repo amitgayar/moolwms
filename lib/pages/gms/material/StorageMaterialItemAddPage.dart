@@ -14,7 +14,7 @@ import 'package:moolwms/utils/AppLocalizations.dart';
 import 'package:moolwms/utils/Extensions.dart';
 import 'package:moolwms/widgets/BottomButtonsContainer.dart';
 import 'package:moolwms/widgets/custom_form_fields.dart';
-import 'package:moolwms/widgets/GradientButton.dart';
+import 'package:moolwms/widgets/gradient_button.dart';
 import 'package:moolwms/widgets/searchable_dropdown/dropdown_search.dart';
 import 'package:moolwms/widgets/EmptyView.dart';
 
