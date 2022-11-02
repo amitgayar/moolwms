@@ -1,8 +1,14 @@
 class VehicleModel {
+  var vehicleNumber;
+
   static fromJson(json) {}
 }
 
 class PersonModel {
+  var mobileNo;
+
+  var fullName;
+
   static fromJson(json) {}
 }
 
