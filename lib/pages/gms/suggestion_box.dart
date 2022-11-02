@@ -95,4 +95,6 @@ class GateStore {
   getVehicleList({required int limit}) {}
 
   getPersonList({required int limit}) {}
+
+  getLastPersonInTransaction(id) {}
 }

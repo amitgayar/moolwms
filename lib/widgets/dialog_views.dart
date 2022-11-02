@@ -248,4 +248,61 @@ class DialogViews {
       },
     );
   }
+
+  static void showErrorDialog(BuildContext context, dynamic errorResponse,
+      {Function? onOKPressed}) {
+    String errorTitle = "", errorMsg = "", buttonText = "OK";
+    bool dismissible = true;
+
+    // if (errorResponse is DioError) {
+    //   if (errorResponse.error is SocketException) {
+    //     errorTitle = "Network Error";
+    //     errorMsg =
+    //     "There is some issue with your internet connection. Please check your internet connection settings and try again.";
+    //   } else if (errorResponse.response != null) {
+    //     if (errorResponse.response.data is Map &&
+    //         errorResponse.response.data.containsKey("error")) {
+    //       var errorDetails =
+    //       APIErrorModel.fromJson(errorResponse.response.data['error']);
+    //       errorTitle = errorResponse.response.statusMessage;
+    //       errorMsg = errorDetails.message;
+    //     } else {
+    //       errorTitle = errorResponse.response.statusMessage;
+    //       errorMsg = errorResponse.response.data.toString();
+    //     }
+    //   } else {
+    //     errorTitle = "API Error";
+    //     errorMsg = errorResponse?.message ??
+    //         "There was some problem while connecting to the server.";
+    //   }
+    // } else {
+    //   errorTitle = "Error";
+    //   errorMsg = errorResponse.toString();
+    // }
+    showDialog(
+        context: context,
+        barrierDismissible: dismissible,
+        builder: (BuildContext context) {
+          return WillPopScope(
+            onWillPop: () {
+              return Future.value(dismissible);
+            },
+            child: AlertDialog(
+              title: Text(errorTitle),
+              content: Text(errorMsg),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: (() {
+                    Navigator.of(context).pop();
+                    if (onOKPressed != null) {
+                      onOKPressed();
+                    }
+                  }),
+                  child: Text(buttonText),
+                )
+              ],
+            ),
+          );
+        });
+  }
 }

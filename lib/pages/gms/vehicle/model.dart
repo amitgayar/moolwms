@@ -1,5 +1,11 @@
+import 'package:flutter/src/widgets/framework.dart';
+
 class VehicleModel {
   var vehicleNumber;
+
+  var personId;
+
+  bool? borrowsVehicle;
 
   static fromJson(json) {}
 }
@@ -8,6 +14,8 @@ class PersonModel {
   var mobileNo;
 
   var fullName;
+
+  get id => null;
 
   static fromJson(json) {}
 }
@@ -18,12 +26,14 @@ class VehicleStore {
   isVehicleInside(String? vehicleNo) {}
 
   vehicleOut(VehicleModel vehicle) {}
+
+  sendBorrowVehicleOTP(String mobileNo, String vehicleNo) {}
 }
 
 class PersonStore {
   var personList = [];
 
-  getPerson(String mobileNo) {}
+  getPerson(String? mobileNo) {}
 
   isPersonInside(String? mobileNo) {}
 }

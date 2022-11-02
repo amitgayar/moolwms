@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moolwms/constants/design_constants/my_decoration.dart';
 import 'package:moolwms/pages/gms/model/gate_transactional_model.dart';
 import 'package:moolwms/pages/gms/suggestion_box.dart';
 import 'package:moolwms/pages/gms/vehicle/model.dart';
@@ -70,7 +71,7 @@ class VehicleOutPageState extends State<VehicleOutPage> {
                     key: _mobNoFormFieldKey,
                     // enabled: !isMobileNoVerified,
                     validator: (val) {
-                      if (val.isEmptyOrNull) {
+                      if (val!.isEmpty) {
                         return
                           ("enter_mobile_number");
                       } else if (val.length < 6) {
@@ -80,7 +81,7 @@ class VehicleOutPageState extends State<VehicleOutPage> {
                       return null;
                     },
                     onSaved: (val) {
-                      mobileNo.number = val;
+                      mobileNo = val;
                     },
                     keyboardType:
                     const TextInputType.numberWithOptions(decimal: false),
@@ -88,42 +89,41 @@ class VehicleOutPageState extends State<VehicleOutPage> {
                       FilteringTextInputFormatter.digitsOnly
                     ],
                     decoration: DecorationUtils.getTextFieldDecoration(
-                      context,
-                      prefixIcon: CountryPicker(
-                          showDialingCode: true,
-                          showName: false,
-                          dense: true,
-                          selectedCountry: mobileNo.countryCode,
-                          onChanged: (country) {
-                            setState(() {
-                              mobileNo.countryCode = country;
-                            });
-                          }),
+                      // prefixIcon:
+                      //todo: prefix icon
+                      // CountryPicker(
+                      //     showDialingCode: true,
+                      //     showName: false,
+                      //     dense: true,
+                      //     selectedCountry: mobileNo.countryCode,
+                      //     onChanged: (country) {
+                      //       setState(() {
+                      //         mobileNo.countryCode = country;
+                      //       });
+                      //     }),
                     ),
                   ),
                 ),
                 const SizedBox(height: 24),
-                VisibilityExtended(
-                  visible: isMobileNoVerified,
-                  child: Column(
+                if(isMobileNoVerified)
+                  Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextFormField(
                         controller: vehController,
                         validator: (val) {
-                          if (val.isEmptyOrNull) {
+                          if (val!.isEmpty) {
                             return
                               ("enter_vehicle_number");
                           }
                           return null;
                         },
                         onSaved: (val) {
-                          vehicleNo = val;
+                          vehicleNo = val!;
                         },
                         textCapitalization: TextCapitalization.characters,
                         decoration: DecorationUtils.getTextFieldDecoration(
-                          context,
                           labelText:
                           ("vehicle_number"),
                         ),
@@ -134,7 +134,7 @@ class VehicleOutPageState extends State<VehicleOutPage> {
                             onClick: (val){
                               vehController.text = val[1].toString();
                               // if(!isMobileNoVerified){
-                              mobileNo.number = val[0];
+                              mobileNo = val[0];
                               mobileController.text = val[0].toString();
                               vehicleNo = val[1];
                               // }
@@ -198,7 +198,6 @@ class VehicleOutPageState extends State<VehicleOutPage> {
                       // ),
                     ],
                   ),
-                ),
               ],
             ),
           ),
@@ -206,7 +205,7 @@ class VehicleOutPageState extends State<VehicleOutPage> {
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            FlatButton(
+            TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
               },
@@ -215,18 +214,18 @@ class VehicleOutPageState extends State<VehicleOutPage> {
             const SizedBox(width: 8),
             isMobileNoVerified
                 ? GradientButton(
-              onPressed: () async {
-                if (_formKey.currentState.validate()) {
-                  _formKey.currentState.save();
-                  VehicleModel vehicle = await vehicleStore
-                      .getVehicle(context, vehicleNo);
+              onPressed: ()  async{
+                if (_formKey.currentState!.validate()) {
+                  _formKey.currentState!.save();
+                  VehicleModel? vehicle = await vehicleStore
+                      .getVehicle(vehicleNo);
                   if (vehicle != null) {
                     bool isVehicleInside = await vehicleStore
-                        .isVehicleInside(context, vehicleNo);
+                        .isVehicleInside(vehicleNo);
                     if (isVehicleInside) {
                       personModel ??= await personStore.getPerson(
-                          context, mobileNo);
-                      vehicle.personId = personModel.id;
+                          mobileNo);
+                      vehicle.personId = personModel?.id;
                       if (gateTxn?.vehicle != null &&
                           gateTxn?.vehicle?.vehicleNumber !=
                               vehicleNo) {
@@ -234,36 +233,32 @@ class VehicleOutPageState extends State<VehicleOutPage> {
                       } else {
                         vehicle.borrowsVehicle = false;
                       }
-                      if (vehicle.borrowsVehicle) {
-                        PersonModel ownerInfo =
-                        await vehicleStore.sendBorrowVehicleOTP(
-                            context, mobileNo, vehicleNo);
-                        Navigator.of(context)
-                            .pushNamed("/verifyotp", arguments: {
-                          "personName": ownerInfo.fullName,
-                          "mobileNo": ownerInfo.mobileNo,
-                          "isPerson": true,
-                          "isOtpSent": true,
-                          "otpType": 4,
-                          "specialPersonMobileNo": mobileNo,
-                        }).then((value) async {
-                          if (value is bool && value) {
-                            vehicleOut(vehicle);
-                          }
-                        });
+                      if (vehicle.borrowsVehicle!) {
+                        // PersonModel ownerInfo = vehicleStore.sendBorrowVehicleOTP(mobileNo!, vehicleNo);
+                        //todo:
+                        // Navigator.of(context).pushNamed("/verifyOtp", arguments: {
+                        //   "personName": ownerInfo.fullName,
+                        //   "mobileNo": ownerInfo.mobileNo,
+                        //   "isPerson": true,
+                        //   "isOtpSent": true,
+                        //   "otpType": 4,
+                        //   "specialPersonMobileNo": mobileNo,
+                        // }).then((value)  {
+                        //   if (value is bool && value) {
+                        //     vehicleOut(vehicle);
+                        //   }
+                        // });
                       } else {
                         vehicleOut(vehicle);
                       }
                     } else {
-                      showErrorDialog(
+                      DialogViews.showErrorDialog(
                           context,
-                          (
-                              "vehicle_not_inside_facility"));
+                          ( "vehicle_not_inside_facility"));
                     }
                   } else {
-                    showErrorDialog(
+                    DialogViews.showErrorDialog(
                         context,
-
                         ("vehicle_not_available"));
                   }
                 }
@@ -273,13 +268,13 @@ class VehicleOutPageState extends State<VehicleOutPage> {
             )
                 : GradientButton(
               onPressed: () async {
-                if (_mobNoFormFieldKey.currentState.validate()) {
-                  _mobNoFormFieldKey.currentState.save();
+                if (_mobNoFormFieldKey.currentState!.validate()) {
+                  _mobNoFormFieldKey.currentState!.save();
                   personModel =
-                  await personStore.getPerson(context, mobileNo);
+                  await personStore.getPerson( mobileNo);
                   if (personModel != null) {
-                    GateTransactionModel gateTxn = await GateStore()
-                        .getLastPersonInTransaction(personModel.id);
+                    GateTransactionModel? gateTxn = await GateStore()
+                        .getLastPersonInTransaction(personModel!.id);
                     if (gateTxn?.vehicle != null) {
                       vehicleNo = gateTxn?.vehicle?.vehicleNumber;
                       vehController.text =
@@ -289,9 +284,8 @@ class VehicleOutPageState extends State<VehicleOutPage> {
                       isMobileNoVerified = true;
                     });
                   } else {
-                    showErrorDialog(
+                    DialogViews.showErrorDialog(
                         context,
-
                         ("person_not_found"));
                   }
                 }
