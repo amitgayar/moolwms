@@ -3,7 +3,7 @@ import 'package:moolwms/constants/Constants.dart';
 import 'package:moolwms/model/gate_transactional_model.dart';
 import 'package:moolwms/store/GateStore.dart';
 import 'package:moolwms/utils/AppLocalizations.dart';
-import 'package:moolwms/widgets/PaginationView.dart';
+import 'package:moolwms/widgets/pagination_view.dart';
 
 class PersonInOutListPage extends StatefulWidget {
   int personType;

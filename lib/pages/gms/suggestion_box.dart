@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moolwms/pages/gms/model/gate_transactional_model.dart';
 import 'package:moolwms/pages/gms/suggestion_chip_tile.dart';
 import 'package:moolwms/utils/dev_utils.dart';
 
@@ -87,14 +88,4 @@ class SuggestionBoxState extends State<SuggestionBox> {
 
 }
 
-class GateStore {
-  get vehicleProductList => null;
 
-  getVehicleProductList({required int limit, int? transactionType}) {}
-
-  getVehicleList({required int limit}) {}
-
-  getPersonList({required int limit}) {}
-
-  getLastPersonInTransaction(id) {}
-}

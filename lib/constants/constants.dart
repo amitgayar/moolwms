@@ -32,4 +32,6 @@ class APIConstants {
   static const String timeOutMsg = "Response taking too much time. \nCheck your connection and try again";
   static const String VEHICLE_INSURANCE_IMAGE_CONTAINER = "";
 
+  static var VEHICLE_RC_IMAGE_CONTAINER;
+
 }

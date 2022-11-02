@@ -529,9 +529,4 @@ class VehicleAddEditPageState extends State<VehicleAddEditPage> {
   }
 }
 
-class FileContainerAPIs {
 
-  static String getFileURL(vehicleInsuranceImageContainer, vehicleRcImage) {
-    return "";
-  }
-}

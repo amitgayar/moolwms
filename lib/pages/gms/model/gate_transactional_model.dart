@@ -548,3 +548,16 @@ class GateTransactionModel {
   }
 }
 
+class GateStore {
+  get vehicleProductList => null;
+
+  getVehicleProductList({required int limit, int? transactionType}) {}
+
+  getVehicleList({required int limit, int? customerId,  offset}) {}
+
+  getPersonList({required int limit}) {}
+
+  getLastPersonInTransaction(id) {}
+
+  void generateReport( String s) {}
+}

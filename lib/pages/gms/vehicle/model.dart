@@ -62,6 +62,8 @@ class PersonStore {
   getPerson(String? mobileNo) {}
 
   isPersonInside(String? mobileNo) {}
+
+  getPersonById( int? personId) {}
 }
 
 

@@ -139,3 +139,10 @@ class ImageUtils {
     );
   }
 }
+
+class FileContainerAPIs {
+
+  static String getFileURL(vehicleInsuranceImageContainer, vehicleRcImage) {
+    return "";
+  }
+}

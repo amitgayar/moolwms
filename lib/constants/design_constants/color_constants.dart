@@ -11,6 +11,8 @@ class ColorConstants {
   static const Color drawerLight = Color(0xFF62B8FD);
   static const Color offWhite = Color(0xFFF0F8F9);
   static const Color appBlue = Color(0xFF1C4B9C);
+  static const Color VEHICLE_LIGHT = Color(0xFF63D2BE);
+  static const Color VEHICLE_DARK = Color(0xFF18B095);
 
 
   static const Color buttonDark = Color(0xFF1C4B9C);
@@ -25,4 +27,5 @@ class ColorConstants {
     Color(0xFF1C4B9C),
     Color(0xFF3D9ADE)
   ];
+  static const Color background = Color(0xFFF5F5F5);
 }

@@ -1,28 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
-import 'package:moolwms/constants/Constants.dart';
-import 'package:moolwms/model/gate_transactional_model.dart';
-import 'package:moolwms/pages/admin/NavigationDrawer.dart';
-import 'package:moolwms/store/GateStore.dart';
-import 'package:moolwms/utils/AppLocalizations.dart';
-import 'package:moolwms/widgets/PaginationView.dart';
+import 'package:moolwms/constants/design_constants/color_constants.dart';
+import 'package:moolwms/pages/gms/model/gate_transactional_model.dart';
+import 'package:moolwms/pages/gms/vehicle/model.dart';
+import 'package:moolwms/widgets/pagination_view.dart';
 
 class VehicleInOutListPage extends StatefulWidget {
-  int customerId;
+  final int customerId;
 
-  VehicleInOutListPage(dynamic args) {
-    if (args != null) {
-      customerId = args['customerId'];
-    }
-  }
+  const VehicleInOutListPage({super.key, required this.customerId});
 
   @override
-  _VehicleInOutListPageState createState() => _VehicleInOutListPageState();
+  VehicleInOutListPageState createState() => VehicleInOutListPageState();
 }
 
-class _VehicleInOutListPageState extends State<VehicleInOutListPage> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  GateStore gateStore = GateStore();
+class VehicleInOutListPageState extends State<VehicleInOutListPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  GateStore? gateStore = GateStore();
 
   @override
   void initState() {
@@ -36,20 +29,20 @@ class _VehicleInOutListPageState extends State<VehicleInOutListPage> {
         key: _scaffoldKey,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
-          title: Text(AppLocalizations.of(context).translate("vehicle_in_out"),
-              style: Theme.of(context).textTheme.subtitle1.copyWith(
-                  color: ColorConstants.PRIMARY, fontWeight: FontWeight.w800)),
+          title: Text(("vehicle_in_out"),
+              style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                  color: ColorConstants.primary, fontWeight: FontWeight.w800)),
           centerTitle: true,
           elevation: 0,
           actions: [
             IconButton(
-                icon: const Icon(Icons.cloud_download, color: ColorConstants.PRIMARY),
+                icon: const Icon(Icons.cloud_download, color: ColorConstants.primary),
                 onPressed: () {
-                  gateStore.generateReport(context, 'vehicle');
+                  gateStore!.generateReport('vehicle');
                 })
           ],
         ),
-        backgroundColor: ColorConstants.BACKGROUND,
+        backgroundColor: ColorConstants.background,
         body: Container(
           color: Colors.white,
           child: Card(
@@ -61,42 +54,7 @@ class _VehicleInOutListPageState extends State<VehicleInOutListPage> {
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-                  child: Row(
-                    children: [
-                      Expanded(
-                          flex: 1,
-                          child: Center(
-                              child: Text(
-                                  AppLocalizations.of(context)
-                                      .translate("status"),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .button
-                                      .copyWith(color: Colors.white)))),
-                      Expanded(
-                          flex: 2,
-                          child: Center(
-                              child: Text(
-                                  AppLocalizations.of(context)
-                                      .translate("vehicle_no"),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .button
-                                      .copyWith(color: Colors.white)))),
-                      Expanded(
-                          flex: 2,
-                          child: Center(
-                              child: Text(
-                                  AppLocalizations.of(context)
-                                      .translate("datetime"),
-                                  textAlign: TextAlign.center,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .button
-                                      .copyWith(color: Colors.white)))),
-                    ],
-                  ),
-                  decoration: const BoxDecoration(
+                  decoration:  const BoxDecoration(
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -105,11 +63,46 @@ class _VehicleInOutListPageState extends State<VehicleInOutListPage> {
                           ColorConstants.VEHICLE_LIGHT
                         ]),
                   ),
+                  child: Row(
+                    children: [
+                      Expanded(
+                          flex: 1,
+                          child: Center(
+                              child: Text(
+
+                                      ("status"),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .button!
+                                      .copyWith(color: Colors.white)))),
+                      Expanded(
+                          flex: 2,
+                          child: Center(
+                              child: Text(
+
+                                      ("vehicle_no"),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .button!
+                                      .copyWith(color: Colors.white)))),
+                      Expanded(
+                          flex: 2,
+                          child: Center(
+                              child: Text(
+
+                                      ("datetime"),
+                                  textAlign: TextAlign.center,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .button!
+                                      .copyWith(color: Colors.white)))),
+                    ],
+                  ),
                 ),
                 Expanded(
                   child: Pagination<GateTransactionModel>(
-                    pageBuilder: (currentListSize) => gateStore.getVehicleList(
-                        customerId: widget.customerId ?? null,
+                    pageBuilder: (currentListSize) => gateStore!.getVehicleList(
+                        customerId: widget.customerId ,
                         limit: 100,
                         offset: currentListSize),
                     itemBuilder: (pos, gateTxn) {
@@ -121,7 +114,7 @@ class _VehicleInOutListPageState extends State<VehicleInOutListPage> {
             ),
           ),
         ),
-        // floatingActionButton: FloatingActionButton(
+        // floatingActionButton!: FloatingActionButton!(
         //   onPressed: null,
         //   child: Icon(AntDesign.filter),
         // ),

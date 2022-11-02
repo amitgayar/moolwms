@@ -15,7 +15,7 @@ import 'package:moolwms/utils/AppLocalizations.dart';
 import 'package:moolwms/utils/Utils.dart';
 import 'package:moolwms/widgets/custom_form_fields.dart';
 import 'package:moolwms/widgets/dialog_views.dart';
-import 'package:moolwms/widgets/PaginationView.dart';
+import 'package:moolwms/widgets/pagination_view.dart';
 import 'package:moolwms/widgets/gradient_button.dart';
 import 'package:moolwms/widgets/ProgressContainerView.dart';
 import 'package:moolwms/widgets/SearchListView.dart';
