@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:moolwms/constants/design_constants/app_icons.dart';
 import 'package:moolwms/constants/design_constants/color_constants.dart';
 import 'package:moolwms/pages/indent/indent_list_page.dart';
-import 'package:moolwms/widgets/expandable_widget.dart';
 
 class CommonDrawer extends StatefulWidget {
   const CommonDrawer({Key? key}) : super(key: key);

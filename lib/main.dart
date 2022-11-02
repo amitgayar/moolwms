@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           // useMaterial3: true,
           scaffoldBackgroundColor: Colors.white,
-          colorScheme: ColorScheme.fromSeed(seedColor: ColorConstants.appBlue),
+          // colorScheme: ColorScheme.fromSeed(seedColor: ColorConstants.appBlue),
           // primarySwatch: Colors.blueGrey,
           fontFamily: 'Nunito',
           appBarTheme: Theme.of(context).appBarTheme.copyWith(
