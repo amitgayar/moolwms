@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moolwms/constants/design_constants/color_constants.dart';
 import 'package:moolwms/pages/gms/model/gate_transactional_model.dart';
-import 'package:moolwms/pages/gms/vehicle/model.dart';
+import 'package:moolwms/pages/gms/model/model.dart';
 import 'package:moolwms/widgets/pagination_view.dart';
 
 class VehicleInOutListPage extends StatefulWidget {

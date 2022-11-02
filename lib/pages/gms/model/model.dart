@@ -2,6 +2,27 @@ import 'dart:io';
 
 import 'package:flutter/src/widgets/framework.dart';
 
+class GateStore {
+  get vehicleProductList => null;
+
+  getVehicleProductList({required int limit, int? transactionType}) {}
+
+  getVehicleList({required int limit, int? customerId,  offset}) {}
+
+  getPersonList({required int limit}) {}
+
+  getLastPersonInTransaction(id) {}
+
+  void generateReport( String s) {}
+}
+
+class MobileNoModel {
+  var countryCode;
+
+  var fullNumber;
+
+  String? number;
+}
 class VehicleModel {
   var vehicleNumber;
 
@@ -39,6 +60,8 @@ class PersonModel {
 
   var fullName;
 
+  var personType;
+
   get id => null;
 
   static fromJson(json) {}
@@ -59,11 +82,15 @@ class VehicleStore {
 class PersonStore {
   var personList = [];
 
-  getPerson(String? mobileNo) {}
+  bool? showProgress;
 
-  isPersonInside(String? mobileNo) {}
+  getPerson(mobileNo) {}
+
+  isPersonInside( mobileNo) {}
 
   getPersonById( int? personId) {}
+
+  personIn(BuildContext context, PersonModel personDetail) {}
 }
 
 
@@ -85,5 +112,4 @@ class OptionModel {
   get value => null;
 }
 
-class MobileNoModel {
-}
+

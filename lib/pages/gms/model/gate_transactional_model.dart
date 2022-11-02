@@ -1,6 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:moolwms/pages/gms/vehicle/model.dart';
+import 'package:moolwms/pages/gms/model/model.dart';
 import 'package:moolwms/utils/shared_pref_utils.dart';
 
 class GateTransactionModel {
@@ -548,16 +550,6 @@ class GateTransactionModel {
   }
 }
 
-class GateStore {
-  get vehicleProductList => null;
 
-  getVehicleProductList({required int limit, int? transactionType}) {}
 
-  getVehicleList({required int limit, int? customerId,  offset}) {}
 
-  getPersonList({required int limit}) {}
-
-  getLastPersonInTransaction(id) {}
-
-  void generateReport( String s) {}
-}

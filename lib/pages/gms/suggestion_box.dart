@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moolwms/pages/gms/model/gate_transactional_model.dart';
+import 'package:moolwms/pages/gms/model/model.dart';
 import 'package:moolwms/pages/gms/suggestion_chip_tile.dart';
 import 'package:moolwms/utils/dev_utils.dart';
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moolwms/constants/design_constants/my_decoration.dart';
 import 'package:moolwms/pages/gms/suggestion_box.dart';
-import 'package:moolwms/pages/gms/vehicle/model.dart';
+import 'package:moolwms/pages/gms/model/model.dart';
 import 'package:moolwms/utils/dev_utils.dart';
 
 class VehicleInPage extends StatefulWidget {

@@ -6,7 +6,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:moolwms/constants/constants.dart';
 import 'package:moolwms/constants/design_constants/color_constants.dart';
 import 'package:moolwms/constants/design_constants/my_decoration.dart';
-import 'package:moolwms/pages/gms/vehicle/model.dart';
+import 'package:moolwms/pages/gms/model/model.dart';
 import 'package:moolwms/widgets/bottom_button_container.dart';
 import 'package:moolwms/widgets/dialog_views.dart';
 import 'package:moolwms/widgets/gradient_button.dart';

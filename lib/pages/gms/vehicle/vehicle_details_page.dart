@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:moolwms/constants/constants.dart';
 import 'package:moolwms/pages/gms/model/gate_transactional_model.dart';
-import 'package:moolwms/pages/gms/vehicle/model.dart';
+import 'package:moolwms/pages/gms/model/model.dart';
 import 'package:moolwms/widgets/my_image_cropper.dart';
 import 'package:url_launcher/url_launcher.dart';
 
