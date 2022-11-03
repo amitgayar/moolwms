@@ -1,30 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:moolwms/constants/Constants.dart';
-import 'package:moolwms/model/gate_transactional_model.dart';
-import 'package:moolwms/store/GateStore.dart';
-import 'package:moolwms/utils/AppLocalizations.dart';
+import 'package:moolwms/constants/design_constants/color_constants.dart';
+import 'package:moolwms/pages/gms/model/gate_transactional_model.dart';
+import 'package:moolwms/pages/gms/model/model.dart';
 import 'package:moolwms/widgets/pagination_view.dart';
 
 class MaterialInOutListPage extends StatefulWidget {
-  int materialType;
-  int direction;
-  String title;
-  int customerId;
+  final int? materialType;
+  final int? direction;
+  final int? customerId;
 
-  MaterialInOutListPage(dynamic args) {
-    if (args != null) {
-      materialType = args['materialType'];
-      direction = args['direction'];
-      title = args['title'];
-      customerId = args['customerId'];
-    }
-  }
+  const MaterialInOutListPage({super.key,  this.materialType,  this.direction,  this.customerId});
+
+
   @override
-  _MaterialInOutListPageState createState() => _MaterialInOutListPageState();
+  MaterialInOutListPageState createState() => MaterialInOutListPageState();
 }
 
-class _MaterialInOutListPageState extends State<MaterialInOutListPage> {
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+class MaterialInOutListPageState extends State<MaterialInOutListPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   GateStore gateStore = GateStore();
 
   @override
@@ -34,21 +27,20 @@ class _MaterialInOutListPageState extends State<MaterialInOutListPage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-            widget.title ??
-                AppLocalizations.of(context).translate("material_in_out"),
-            style: Theme.of(context).textTheme.subtitle1.copyWith(
-                color: ColorConstants.PRIMARY, fontWeight: FontWeight.w800)),
+                ("material_in_out"),
+            style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                color: ColorConstants.primary, fontWeight: FontWeight.w800)),
         centerTitle: true,
         elevation: 0,
         actions: [
           IconButton(
-              icon: const Icon(Icons.cloud_download, color: ColorConstants.PRIMARY),
+              icon: const Icon(Icons.cloud_download, color: ColorConstants.primary),
               onPressed: () {
-                gateStore.generateReport(context, 'material');
+                gateStore.generateReport('material');
               })
         ],
       ),
-      backgroundColor: ColorConstants.BACKGROUND,
+      backgroundColor: ColorConstants.background,
       body: Container(
         color: Colors.white,
         child: Card(
@@ -60,52 +52,7 @@ class _MaterialInOutListPageState extends State<MaterialInOutListPage> {
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-                child: Row(
-                  children: [
-                    Expanded(
-                        flex: 1,
-                        child: Center(
-                            child: Text(
-                                AppLocalizations.of(context)
-                                    .translate("status"),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .button
-                                    .copyWith(color: Colors.white)))),
-                    Expanded(
-                        flex: 2,
-                        child: Center(
-                            child: Text(
-                                AppLocalizations.of(context)
-                                    .translate("vehicle_no"),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .button
-                                    .copyWith(color: Colors.white)))),
-                    Expanded(
-                        flex: 2,
-                        child: Center(
-                            child: Text(
-                                AppLocalizations.of(context)
-                                    .translate("customer"),
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .button
-                                    .copyWith(color: Colors.white)))),
-                    Expanded(
-                        flex: 2,
-                        child: Center(
-                            child: Text(
-                                AppLocalizations.of(context)
-                                    .translate("datetime"),
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .button
-                                    .copyWith(color: Colors.white)))),
-                  ],
-                ),
-                decoration: const BoxDecoration(
+                decoration:  const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -114,13 +61,58 @@ class _MaterialInOutListPageState extends State<MaterialInOutListPage> {
                         ColorConstants.MATERIAL_LIGHT
                       ]),
                 ),
+                child: Row(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: Center(
+                            child: Text(
+
+                                    ("status"),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .button!
+                                    .copyWith(color: Colors.white)))),
+                    Expanded(
+                        flex: 2,
+                        child: Center(
+                            child: Text(
+
+                                    ("vehicle_no"),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .button!
+                                    .copyWith(color: Colors.white)))),
+                    Expanded(
+                        flex: 2,
+                        child: Center(
+                            child: Text(
+
+                                    ("customer"),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .button!
+                                    .copyWith(color: Colors.white)))),
+                    Expanded(
+                        flex: 2,
+                        child: Center(
+                            child: Text(
+
+                                    ("datetime"),
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .button!
+                                    .copyWith(color: Colors.white)))),
+                  ],
+                ),
               ),
               Expanded(
                 child: Pagination<GateTransactionModel>(
                   pageBuilder: (currentListSize) => gateStore.getMaterialList(
-                      customerId: widget.customerId ?? null,
-                      materialType: widget.materialType,
-                      direction: widget.direction,
+                      customerId: widget.customerId,
+                      materialType: widget.materialType!,
+                      direction: widget.direction!,
                       limit: 100,
                       offset: currentListSize),
                   itemBuilder: (pos, gateTxn) {

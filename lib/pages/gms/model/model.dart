@@ -16,6 +16,15 @@ class GateStore {
   void generateReport( String s) {}
 
   getPersonListByDateRange(id, DateTime dateTime, DateTime dateTime2) {}
+
+  getMaterialList({int? customerId, required int materialType, required int direction, required int limit, required int offset}) {}
+}
+class MaterialStore {
+  var showProgress;
+
+  materialIn(MaterialModel? materialModel) {}
+
+  materialOut(MaterialModel? materialModel) {}
 }
 
 class MobileNoModel {
@@ -239,6 +248,8 @@ class Contact {
 
 
 class VehicleStore {
+  var showProgress;
+
   getVehicle(String? vehicleNo) {}
 
   isVehicleInside(String? vehicleNo) {}
@@ -294,7 +305,25 @@ class OptionAPIs {
 }
 
 class MaterialModel {
+  var directionOfMovement;
+
+  var storageMaterials;
+
+  var personalMaterials;
+
+  var documents;
+
+  var assets;
+
+  var spareParts;
+
+  var diesels;
+
+  var customer;
+
   static fromJson(json) {}
+}
+class DieselItemModel {
 }
 
 class OptionModel {

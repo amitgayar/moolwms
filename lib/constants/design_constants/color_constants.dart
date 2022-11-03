@@ -16,6 +16,8 @@ class ColorConstants {
   static const Color PERSON_LIGHT = Color(0xFF3D4A89);
   static const Color PERSON_DARK = Color(0xFF3D4A89);
   static const Color GREY_SEARCH_BORDER = Color(0xffDCDCDC);
+  static const Color MATERIAL_LIGHT = Color(0xFFFEC56A);
+  static const Color MATERIAL_DARK = Color(0xFFE0A03A);
 
 
   static const Color buttonDark = Color(0xFF1C4B9C);
