@@ -84,6 +84,7 @@ class VerificationCodePageState extends State<VerificationCodePage> {
 
   @override
   Widget build(BuildContext context) {
+    logPrint.w('build');
     var textTheme = Theme.of(context).textTheme;
     var size = MediaQuery.of(context).size;
     var width = size.width;
@@ -170,9 +171,11 @@ class VerificationCodePageState extends State<VerificationCodePage> {
                                   BorderRadius.all(Radius.circular(24))),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 36, vertical: 12),
-                          child: const Text(
+                          child:  Text(
                               // ("verify")
-                              ("Verify")),
+                              ("Verify"),
+                          style: textTheme.button!.copyWith(color: Colors.white),
+                          ),
                         ),
                         onTap: () {
                           if (_otpEditingController.text.length == otpLength) {
@@ -181,7 +184,7 @@ class VerificationCodePageState extends State<VerificationCodePage> {
                             setState(() {
                               verificationStatus = VerificationStatus.invalid;
                             });
-                            myToast(
+                            MyToast.error(
                                 // ("enter_verification_code")
                                 ("Enter verification code"));
                           }

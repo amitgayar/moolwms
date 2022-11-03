@@ -3,6 +3,7 @@ import 'package:moolwms/constants/design_constants/color_constants.dart';
 import 'package:moolwms/pages/indent/indent_details_page.dart';
 import 'package:moolwms/pages/indent/apis/indent_apis.dart';
 import 'package:moolwms/pages/indent/model/indent_list_model.dart';
+import 'package:moolwms/utils/shared_pref_utils.dart';
 import 'package:moolwms/widgets/my_toast.dart';
 import 'package:moolwms/utils/dev_utils.dart';
 import 'package:moolwms/widgets/circular_indicator.dart';
@@ -69,7 +70,7 @@ class IndentListPageState extends State<IndentListPage> {
   Widget build(BuildContext context) {
     var meta = indentModel?.meta;
     var data = indentModel?.data;
-    logPrint.w("$meta, $data");
+
 
     if (indentModel != null && meta != null) {
       if (meta.code == 200) {

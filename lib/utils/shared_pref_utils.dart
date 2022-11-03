@@ -5,15 +5,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PrefData {
   static const token = 'token';
+  static const dummyToken = r"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7InVzZXJJZCI6NywidXNlck5hbWUiOiJTaHViaGFtIFNoYXJtYSIsInVzZXJFbWFpbCI6InNodWJoYW1AbW9vbGNvZGUuY29tIiwidXNlck1vYmlsZSI6Iis5MTk5MTA2MTA5MzkifSwiaWF0IjoxNjY1NzM4MDgxfQ.5i3boABstXqTnBQL_UITcS778hgeKBI7sWF1n9XpgD";
   static const userId = 'userId';
   static const userName = 'userName';
   static const userNumber = 'userNumber';
-
   static const String userRole = "userRole";
   static const String autoLogin = "autoLogin";
   static const String isLoggedIn = "isLogin";
   static const String fcmToken = "fcmToken";
   static const String jwtToken = "jwtToken";
+  static const String dummyJwtToken = '{"userId":7,"userName":"Shubham Sharma","userEmail":"shubham@moolcode.com","userMobile":"+919910610939"}';
   static const String languageCode = "languageCode";
   //todo: save locationId
   static const String locationId = "locationId";

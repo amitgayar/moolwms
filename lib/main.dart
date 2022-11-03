@@ -31,13 +31,13 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           // useMaterial3: true,
           scaffoldBackgroundColor: Colors.white,
-          colorScheme: ColorScheme.fromSeed(seedColor: ColorConstants.appBlue),
+          // colorScheme: ColorScheme.fromSeed(seedColor: ColorConstants.appBlue),
           // primarySwatch: Colors.blueGrey,
           fontFamily: 'Nunito',
           appBarTheme: Theme.of(context).appBarTheme.copyWith(
             // brightness: Brightness.light,
             color: Colors.white,
-            elevation: 0,
+            elevation: 4,
             centerTitle: true,
             iconTheme: const IconThemeData(
               // color: Colors.grey[800],

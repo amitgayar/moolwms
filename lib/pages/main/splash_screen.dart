@@ -32,7 +32,9 @@ class MySplashScreenState extends State<MySplashScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_){
     Future.delayed(const Duration(milliseconds: 100)).then((value) {
       if (token.isEmpty) {
-        Navigator.of(context).pushReplacementNamed(LoginPage.routeName);
+         // PrefData.setPref(PrefData.token,PrefData.dummyToken);
+         // Navigator.of(context).pushReplacementNamed(MyHomePage.routeName);
+         Navigator.of(context).pushReplacementNamed(LoginPage.routeName);
       } else {
         Navigator.of(context).pushReplacementNamed(MyHomePage.routeName);
       }
